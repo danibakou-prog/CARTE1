@@ -2,10 +2,11 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>????? ??????? ???????</title>
+    <title>بوابة التفعيل الملكية</title>
     
-    <!-- ????? ?????? ??????? -->
+    <!-- تحميل الخطوط الملكية -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
@@ -147,7 +148,7 @@
                         <i data-lucide="crown" class="w-7 h-7 text-[#fcf6ba]"></i>
                     </div>
                     <div>
-                        <h1 class="text-xl font-black text-gray-900 tracking-tight">???? ??????</h1>
+                        <h1 class="text-xl font-black text-gray-900 tracking-tight">نظام النخبة</h1>
                         <p class="text-[10px] font-bold text-amber-600 uppercase tracking-widest flex items-center gap-1">
                             <span class="w-2 h-2 rounded-full bg-amber-500"></span>
                             Elite Member Access
@@ -156,7 +157,7 @@
                 </div>
                 <div class="text-left">
                     <div class="text-[9px] font-bold text-gray-400 uppercase">Status</div>
-                    <div class="text-[11px] font-black text-emerald-600">??? ?????</div>
+                    <div class="text-[11px] font-black text-emerald-600">نشط ومؤمن</div>
                 </div>
             </div>
 
@@ -167,11 +168,11 @@
                 <div class="space-y-3 mb-10">
                     <div class="instruction-pill p-4 rounded-2xl flex items-center gap-4 group">
                         <div class="w-8 h-8 rounded-xl bg-gray-50 flex items-center justify-center text-xs font-bold text-gray-400 group-hover:bg-amber-50 group-hover:text-amber-600 transition-colors">01</div>
-                        <p class="text-xs font-bold text-gray-600">???? ????? ?????? ?????? ??????? ????? ?????.</p>
+                        <p class="text-xs font-bold text-gray-600">انسخ الرمز الملكي الموضح بالأسفل بنقرة واحدة.</p>
                     </div>
                     <div class="instruction-pill p-4 rounded-2xl flex items-center gap-4 group">
                         <div class="w-8 h-8 rounded-xl bg-gray-50 flex items-center justify-center text-xs font-bold text-gray-400 group-hover:bg-amber-50 group-hover:text-amber-600 transition-colors">02</div>
-                        <p class="text-xs font-bold text-gray-600">???? ??? "???? ???????" ???? ??????? ????? ??.</p>
+                        <p class="text-xs font-bold text-gray-600">توجه إلى "مركز التوثيق" داخل التطبيق الخاص بك.</p>
                     </div>
                 </div>
 
@@ -194,7 +195,7 @@
                     <!-- Floating Copy Button -->
                     <button id="floatingBtn" class="copy-trigger absolute -bottom-6 left-1/2 -translate-x-1/2 px-10 py-4 rounded-2xl flex items-center gap-3 shadow-xl">
                         <i data-lucide="copy" class="w-4 h-4 text-[#4a3701]"></i>
-                        <span class="text-xs font-black text-[#4a3701]">??? ????? ????</span>
+                        <span class="text-xs font-black text-[#4a3701]">نسخ الرمز الآن</span>
                     </button>
                 </div>
             </div>
@@ -206,7 +207,7 @@
                         <span class="text-[9px] font-bold text-gray-400 uppercase mb-1">Security Protocol</span>
                         <div class="flex items-center gap-2">
                             <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
-                            <span class="text-[10px] font-black text-gray-800">????? AES-256 ?? ???</span>
+                            <span class="text-[10px] font-black text-gray-800">تشفير AES-256 بت نشط</span>
                         </div>
                     </div>
                     <div class="bg-gray-50 px-4 py-2 rounded-xl flex items-center gap-2">
@@ -225,7 +226,7 @@
                 <i data-lucide="sparkles" class="w-5 h-5"></i>
             </div>
             <div>
-                <p class="font-black text-sm">????? ????? ?????</p>
+                <p class="font-black text-sm">اكتمل النسخ بنجاح</p>
                 <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Token Added to Clipboard</p>
             </div>
         </div>
@@ -244,38 +245,29 @@
             const timeStr = now.getHours().toString().padStart(2, '0') + ":" + 
                            now.getMinutes().toString().padStart(2, '0') + ":" + 
                            now.getSeconds().toString().padStart(2, '0');
-            document.getElementById('timestamp').innerText = timeStr;
+            const el = document.getElementById('timestamp');
+            if(el) el.innerText = timeStr;
         }
         setInterval(updateTime, 1000);
         updateTime();
 
         function handleCopy(e) {
             const token = tokenElement.innerText;
-            
-            // ??????? ??????? ????????? (Fallback) ????? ?????? ??????? ?? ???????? (iFrames)
             const textArea = document.createElement("textarea");
             textArea.value = token;
-            
-            // ??? textarea ??? ?????
             textArea.style.position = "fixed";
             textArea.style.left = "-9999px";
             textArea.style.top = "0";
             document.body.appendChild(textArea);
-            
             textArea.focus();
             textArea.select();
             
             try {
                 const successful = document.execCommand('copy');
-                if (successful) {
-                    showSuccess(e);
-                } else {
-                    console.error('??? ?????');
-                }
+                if (successful) showSuccess(e);
             } catch (err) {
-                console.error('??? ????? ?????? ?????:', err);
+                console.error('Copy error:', err);
             }
-            
             document.body.removeChild(textArea);
         }
 
@@ -283,20 +275,14 @@
             const ripple = document.createElement('span');
             ripple.classList.add('ripple-effect');
             const rect = copyArea.getBoundingClientRect();
-            
-            // ?????? ??? ???????? ????? ????
             const x = e.clientX ? e.clientX - rect.left : rect.width / 2;
             const y = e.clientY ? e.clientY - rect.top : rect.height / 2;
-            
             ripple.style.left = x + 'px';
             ripple.style.top = y + 'px';
             ripple.style.width = ripple.style.height = Math.max(rect.width, rect.height) + 'px';
             copyArea.appendChild(ripple);
             setTimeout(() => ripple.remove(), 600);
-
-            // ??? ???????
             toast.classList.remove('translate-y-40', 'opacity-0');
-            
             setTimeout(() => {
                 toast.classList.add('translate-y-40', 'opacity-0');
             }, 3000);
