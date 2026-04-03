@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة التفعيل الملكية</title>
+    <title>Royal Activation Portal</title>
     
-    <!-- تحميل الخطوط الملكية -->
+    <!-- Load Luxury Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -24,7 +24,7 @@
         }
 
         body {
-            font-family: 'Cairo', 'IBM Plex Sans Arabic', sans-serif;
+            font-family: 'Montserrat', 'Inter', sans-serif;
             background: #f8f9fa;
             background-image: 
                 radial-gradient(circle at 50% 50%, rgba(191, 149, 63, 0.03) 0%, transparent 80%),
@@ -119,7 +119,7 @@
 
         .instruction-pill:hover {
             border-color: var(--gold-primary);
-            transform: translateX(-5px);
+            transform: translateX(5px);
         }
 
         @keyframes ripple {
@@ -144,20 +144,20 @@
             <!-- Header Section -->
             <div class="px-10 pt-10 pb-6 flex justify-between items-center">
                 <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 rounded-2xl bg-black flex items-center justify-center shadow-lg transform -rotate-6">
+                    <div class="w-14 h-14 rounded-2xl bg-black flex items-center justify-center shadow-lg transform rotate-6">
                         <i data-lucide="crown" class="w-7 h-7 text-[#fcf6ba]"></i>
                     </div>
                     <div>
-                        <h1 class="text-xl font-black text-gray-900 tracking-tight">نظام النخبة</h1>
+                        <h1 class="text-xl font-black text-gray-900 tracking-tight">Elite System</h1>
                         <p class="text-[10px] font-bold text-amber-600 uppercase tracking-widest flex items-center gap-1">
                             <span class="w-2 h-2 rounded-full bg-amber-500"></span>
                             Elite Member Access
                         </p>
                     </div>
                 </div>
-                <div class="text-left">
-                    <div class="text-[9px] font-bold text-gray-400 uppercase">Status</div>
-                    <div class="text-[11px] font-black text-emerald-600">نشط ومؤمن</div>
+                <div class="text-right">
+                    <div class="text-[9px] font-bold text-gray-400 uppercase tracking-wider">Status</div>
+                    <div class="text-[11px] font-black text-emerald-600">Active & Secured</div>
                 </div>
             </div>
 
@@ -168,11 +168,11 @@
                 <div class="space-y-3 mb-10">
                     <div class="instruction-pill p-4 rounded-2xl flex items-center gap-4 group">
                         <div class="w-8 h-8 rounded-xl bg-gray-50 flex items-center justify-center text-xs font-bold text-gray-400 group-hover:bg-amber-50 group-hover:text-amber-600 transition-colors">01</div>
-                        <p class="text-xs font-bold text-gray-600">انسخ الرمز الملكي الموضح بالأسفل بنقرة واحدة.</p>
+                        <p class="text-xs font-bold text-gray-600">Copy the Royal Token displayed below with one click.</p>
                     </div>
                     <div class="instruction-pill p-4 rounded-2xl flex items-center gap-4 group">
                         <div class="w-8 h-8 rounded-xl bg-gray-50 flex items-center justify-center text-xs font-bold text-gray-400 group-hover:bg-amber-50 group-hover:text-amber-600 transition-colors">02</div>
-                        <p class="text-xs font-bold text-gray-600">توجه إلى "مركز التوثيق" داخل التطبيق الخاص بك.</p>
+                        <p class="text-xs font-bold text-gray-600">Proceed to the "Verification Center" within your app.</p>
                     </div>
                 </div>
 
@@ -195,7 +195,7 @@
                     <!-- Floating Copy Button -->
                     <button id="floatingBtn" class="copy-trigger absolute -bottom-6 left-1/2 -translate-x-1/2 px-10 py-4 rounded-2xl flex items-center gap-3 shadow-xl">
                         <i data-lucide="copy" class="w-4 h-4 text-[#4a3701]"></i>
-                        <span class="text-xs font-black text-[#4a3701]">نسخ الرمز الآن</span>
+                        <span class="text-xs font-black text-[#4a3701]">COPY TOKEN NOW</span>
                     </button>
                 </div>
             </div>
@@ -207,7 +207,7 @@
                         <span class="text-[9px] font-bold text-gray-400 uppercase mb-1">Security Protocol</span>
                         <div class="flex items-center gap-2">
                             <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
-                            <span class="text-[10px] font-black text-gray-800">تشفير AES-256 بت نشط</span>
+                            <span class="text-[10px] font-black text-gray-800">AES-256 Bit Encryption Active</span>
                         </div>
                     </div>
                     <div class="bg-gray-50 px-4 py-2 rounded-xl flex items-center gap-2">
@@ -226,7 +226,7 @@
                 <i data-lucide="sparkles" class="w-5 h-5"></i>
             </div>
             <div>
-                <p class="font-black text-sm">اكتمل النسخ بنجاح</p>
+                <p class="font-black text-sm">Copied Successfully</p>
                 <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Token Added to Clipboard</p>
             </div>
         </div>
