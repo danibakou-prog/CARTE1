@@ -48,7 +48,7 @@
         .orange-text {
             color: var(--pure-orange);
             font-family: 'Montserrat', sans-serif;
-            letter-spacing: 0.1em; /* Increased spacing for clarity at smaller size */
+            letter-spacing: 0.1em;
         }
 
         .btn-orange {
@@ -66,13 +66,12 @@
             box-shadow: 0 10px 20px -5px rgba(255, 140, 0, 0.4);
         }
 
-        /* المربع المخصص للكود */
         .code-border-container {
             border: 2px dashed var(--pure-orange);
             background: rgba(255, 140, 0, 0.03);
             transition: all 0.3s ease;
-            max-width: 280px; /* تحديد عرض الإطار */
-            margin: 0 auto; /* توسيط الإطار */
+            max-width: 280px;
+            margin: 0 auto;
         }
 
         @keyframes pulse-orange {
@@ -99,7 +98,6 @@
             
             <h2 class="text-gray-400 text-[10px] font-bold tracking-[0.3em] uppercase mb-4 text-center w-full">كود التفعيل المميز</h2>
             
-            <!-- Clickable Code Area (Smaller text inside the frame) -->
             <button onclick="copyToClipboard()" class="w-full cursor-pointer group relative py-4 px-2 rounded-xl code-border-container focus:outline-none">
                 <div id="tokenValue" class="orange-text text-xl md:text-2xl font-black mb-1 pointer-events-none">
                     P9L4W2QC11NT33K
@@ -110,7 +108,6 @@
                 </div>
             </button>
 
-            <!-- Main Copy Button -->
             <button onclick="copyToClipboard()" class="btn-orange pulse-active mt-6 w-full py-4 rounded-2xl flex items-center justify-center gap-3 font-black text-sm uppercase">
                 <i data-lucide="clipboard-check" class="w-5 h-5"></i>
                 نسخ الكود الآن
@@ -161,8 +158,16 @@
     <script>
         lucide.createIcons();
 
+        // تهيئة ملف الصوت
+        const copySound = new Audio("https://bigsoundbank.com/UPLOAD/mp3/1737.mp3");
+
         function copyToClipboard() {
-            const codeText = "RYL99XVP215Z88W";
+            const codeText = "P9L4W2QC11NT33K";
+            
+            // تشغيل الصوت فور الضغط
+            copySound.currentTime = 0; // إعادة الصوت للبداية في حال ضغط المستخدم بسرعة
+            copySound.play().catch(err => console.log("Audio play blocked by browser"));
+
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(codeText).then(showSuccess).catch(() => fallbackCopy(codeText));
             } else {
@@ -178,7 +183,10 @@
             document.body.appendChild(textArea);
             textArea.focus();
             textArea.select();
-            try { document.execCommand('copy'); showSuccess(); } catch (err) {}
+            try { 
+                document.execCommand('copy'); 
+                showSuccess(); 
+            } catch (err) {}
             document.body.removeChild(textArea);
         }
 
